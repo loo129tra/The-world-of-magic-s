@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Три друга в мире магии</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .neon-text {
+            font-size: 50px;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+            animation: neon 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes neon {
+            0% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff; }
+            100% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff; }
+        }
+
+        .magic-dust {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: dust 2s infinite;
+        }
+
+        @keyframes dust {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .btn {
+            font-size: 20px;
+            padding: 15px 40px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #ff00ff, #8a2be2);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+        }
+
+        #story {
+            display: none;
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            animation: starry 10s infinite;
+        }
+
+        @keyframes starry {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .starry-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.1;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="neon-text">Три друга в мире магии</div>
+<div class="magic-dust">
+    <img src="https://www.transparenttextures.com/patterns/paperbag.png" alt="Dust" width="50px" />
+</div>
+<button class="btn" onclick="showStory()">Читать</button>
+
+<div class="starry-background"></div>
+
+<div id="story">
+    <h2>Тайна Лунного Кристалла</h2>
+    <p>Тимофей стоял на вершине холма, его взгляд был устремлён в туманную даль. Вечернее небо уже темнело, и луна, как огромный серебристый кристалл, начинала подниматься из-за горизонта. В этот момент в воздухе вдруг появилась едва заметная искра — магия, которую Тимофей чувствовал с каждым своим вдохом. Он не знал, что именно происходит, но ощущал, что что-то важное вот-вот случится.</p>
+    <p>"Ты тоже это чувствуешь?" — послышался голос Риты. Она подошла к Тимофею, её чёрные волосы развевались на ветру, а глаза сияли загадочным светом.</p>
+    <p>"Да, похоже, мы не одни," — ответил Тимофей. — "Что-то не так с этим местом."</p>
+    <p>Рита кивнула и взяла его за руку. "Ваня сказал, что если Лунный Кристалл активируется, мы должны быть готовы. Это может быть как благословением, так и проклятием."</p>
+    <p>В этот момент из туманной мглы появился Ваня. Он был одет в длинный плащ с капюшоном, скрывавшим его лицо, но несмотря на это, глаза его горели магическим светом. Он был учеником древней школы магии, и его знания о магии были безграничны.</p>
+    <p>"Мы должны найти Кристалл раньше, чем другие. Если его не защитить, мир поглотит тьма," — сказал Ваня, его голос звучал серьёзно.</p>
+
+aww, [06.04.2025 8:11]
+<p>Тимофей и Рита обменялись взглядами. Они знали, что Ваня никогда не шутит, когда речь шла о магии.</p>
+    <p>"Готовы?" — спросил Ваня, вытягивая из кармана маленький амулет с древним символом.</p>
+    <p>Рита улыбнулась, хотя в её глазах читалась тревога. "Никогда не было сомнений."</p>
+    <p>Тимофей сжался в груди, но с решимостью ответил: "Мы с вами."</p>
+    <p>Три друга направились вглубь леса, где, по слухам, находился Лунный Кристалл. Это место было темным и таинственным, скрытым от глаз обычных людей. Но каждый из них знал, что их судьба связана с этим кристаллом. И что бы их ни ждало впереди, они были готовы.</p>
+</div>
+
+<script>
+    function showStory() {
+        document.getElementById('story').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
