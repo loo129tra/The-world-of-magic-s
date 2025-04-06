@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            height: 100vh;
         }
 
         .neon-text {
@@ -66,7 +67,14 @@
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
-            animation: starry 10s infinite;
+            animation: fadeIn 2s ease-out;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes starry {
@@ -85,13 +93,58 @@
             opacity: 0.1;
             z-index: -1;
         }
+
+        /* Стиль для мобильных устройств */
+        @media (max-width: 600px) {
+            .neon-text {
+                font-size: 35px;
+            }
+
+            .btn {
+                font-size: 18px;
+                padding: 12px 30px;
+            }
+
+            #story {
+                max-height: 70vh;
+                padding: 15px;
+            }
+        }
+
+        /* Капельки пыли */
+        .dust-drop {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: fall 4s infinite;
+        }
+
+        @keyframes fall {
+            0% { top: -20px; opacity: 0; }
+            50% { opacity: 1; }
+            100% { top: 100vh; opacity: 0; }
+        }
+
+        /* Позиции для капель */
+        .dust-drop:nth-child(1) { left: 25%; animation-delay: 0s; }
+        .dust-drop:nth-child(2) { left: 35%; animation-delay: 1s; }
+        .dust-drop:nth-child(3) { left: 45%; animation-delay: 2s; }
+        .dust-drop:nth-child(4) { left: 55%; animation-delay: 3s; }
+        .dust-drop:nth-child(5) { left: 65%; animation-delay: 1.5s; }
     </style>
 </head>
 <body>
 
 <div class="neon-text">Три друга в мире магии</div>
 <div class="magic-dust">
-    <img src="https://www.transparenttextures.com/patterns/paperbag.png" alt="Dust" width="50px" />
+
+aww, [06.04.2025 8:25]
+<img src="https://www.transparenttextures.com/patterns/paperbag.png" alt="Dust" width="50px" />
 </div>
 <button class="btn" onclick="showStory()">Читать</button>
 
@@ -105,18 +158,29 @@
     <p>Рита кивнула и взяла его за руку. "Ваня сказал, что если Лунный Кристалл активируется, мы должны быть готовы. Это может быть как благословением, так и проклятием."</p>
     <p>В этот момент из туманной мглы появился Ваня. Он был одет в длинный плащ с капюшоном, скрывавшим его лицо, но несмотря на это, глаза его горели магическим светом. Он был учеником древней школы магии, и его знания о магии были безграничны.</p>
     <p>"Мы должны найти Кристалл раньше, чем другие. Если его не защитить, мир поглотит тьма," — сказал Ваня, его голос звучал серьёзно.</p>
-
-aww, [06.04.2025 8:11]
-<p>Тимофей и Рита обменялись взглядами. Они знали, что Ваня никогда не шутит, когда речь шла о магии.</p>
+    <p>Тимофей и Рита обменялись взглядами. Они знали, что Ваня никогда не шутит, когда речь шла о магии.</p>
     <p>"Готовы?" — спросил Ваня, вытягивая из кармана маленький амулет с древним символом.</p>
     <p>Рита улыбнулась, хотя в её глазах читалась тревога. "Никогда не было сомнений."</p>
     <p>Тимофей сжался в груди, но с решимостью ответил: "Мы с вами."</p>
     <p>Три друга направились вглубь леса, где, по слухам, находился Лунный Кристалл. Это место было темным и таинственным, скрытым от глаз обычных людей. Но каждый из них знал, что их судьба связана с этим кристаллом. И что бы их ни ждало впереди, они были готовы.</p>
 </div>
 
+<!-- Добавление фоновой музыки -->
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-dreams.mp3" type="audio/mp3">
+    Ваш браузер не поддерживает аудио.
+</audio>
+
 <script>
     function showStory() {
         document.getElementById('story').style.display = 'block';
+    }
+
+    // Создание пыли
+    for (let i = 0; i < 5; i++) {
+        const dust = document.createElement('div');
+        dust.classList.add('dust-drop');
+        document.body.appendChild(dust);
     }
 </script>
 
